@@ -10,7 +10,8 @@ interface IProps {
 export const CanvasLayout = (props: IProps) => {
   return (
     <StyledCanvas>
-      <ambientLight position={[1, 1, 1]} />
+      <ambientLight position={[0, 0, 1]} />
+      <pointLight position={[0, 0, 5]} />
 
       <Suspense fallback={null}>{props.children}</Suspense>
 
