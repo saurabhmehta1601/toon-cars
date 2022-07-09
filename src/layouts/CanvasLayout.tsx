@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import styled from "@emotion/styled";
+import { OrbitControls } from "@react-three/drei";
 
 interface IProps {
   children: React.ReactNode;
@@ -10,7 +11,10 @@ export const CanvasLayout = (props: IProps) => {
   return (
     <StyledCanvas>
       <ambientLight position={[1, 1, 1]} />
-      {props.children}
+
+      <Suspense fallback={null}>{props.children}</Suspense>
+
+      <OrbitControls />
     </StyledCanvas>
   );
 };
